@@ -40,8 +40,10 @@ const Login = () => {
               <SkeletonBar className="h-3 w-20" />
               <SkeletonBar className="h-10 w-full rounded-md" />
             </div>
-            {/* Sign In button skeleton */}
-            <SkeletonBar className="h-11 w-full rounded-md" />
+            {/* Sign In button */}
+            <Link to="/dashboard">
+              <div className="skeleton-shimmer h-11 w-full rounded-md cursor-pointer hover:opacity-80 transition-opacity" />
+            </Link>
             {/* Links skeleton */}
             <div className="flex items-center justify-between">
               <SkeletonBar className="h-3 w-28" />
