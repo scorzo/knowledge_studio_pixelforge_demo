@@ -15,7 +15,7 @@ const Login = () => {
             <div className="flex h-8 w-8 items-center justify-center rounded bg-primary">
               <span className="text-sm font-bold text-primary-foreground">PF</span>
             </div>
-            <span className="text-lg font-bold text-foreground tracking-tight">PixelForge</span>
+            <span className="text-lg font-bold text-foreground tracking-tight">PixelForge Printers</span>
           </Link>
         </div>
       </header>
