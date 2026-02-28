@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
-const SkeletonBar = ({ className = "" }: { className?: string }) => (
-  <div className={`skeleton-shimmer ${className}`} />
-);
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 
 const Login = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      {/* Minimal header */}
       <header className="border-b border-border bg-background">
         <div className="mx-auto flex h-14 max-w-7xl items-center px-6">
           <Link to="/" className="flex items-center gap-2">
@@ -20,7 +18,6 @@ const Login = () => {
         </div>
       </header>
 
-      {/* Login card */}
       <main className="flex flex-1 items-center justify-center px-4 py-12">
         <Card className="w-full max-w-sm border-border shadow-lg">
           <CardHeader className="items-center gap-3 pb-2">
@@ -30,30 +27,27 @@ const Login = () => {
             <p className="text-sm font-medium text-muted-foreground">Sign in to PixelForge</p>
           </CardHeader>
           <CardContent className="flex flex-col gap-5 pt-2">
-            {/* Email skeleton */}
             <div className="flex flex-col gap-2">
-              <SkeletonBar className="h-3 w-20" />
-              <SkeletonBar className="h-10 w-full rounded-md" />
+              <Label htmlFor="email">Email address</Label>
+              <Input id="email" type="email" placeholder="you@example.com" />
             </div>
-            {/* Password skeleton */}
             <div className="flex flex-col gap-2">
-              <SkeletonBar className="h-3 w-20" />
-              <SkeletonBar className="h-10 w-full rounded-md" />
+              <Label htmlFor="password">Password</Label>
+              <Input id="password" type="password" placeholder="••••••••" />
             </div>
-            {/* Sign In button */}
             <Link to="/dashboard">
-              <div className="h-11 w-full rounded-md cursor-pointer bg-primary/20 hover:bg-primary/30 transition-colors" />
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+                Sign In
+              </Button>
             </Link>
-            {/* Links skeleton */}
             <div className="flex items-center justify-between">
-              <SkeletonBar className="h-3 w-28" />
-              <SkeletonBar className="h-3 w-24" />
+              <span className="text-xs text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Forgot password?</span>
+              <span className="text-xs text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Create account</span>
             </div>
           </CardContent>
         </Card>
       </main>
 
-      {/* Accent line */}
       <div className="h-1 w-full bg-primary" />
     </div>
   );
