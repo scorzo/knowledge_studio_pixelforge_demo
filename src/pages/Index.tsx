@@ -1,17 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const SkeletonBar = ({ className = "" }: { className?: string }) => (
-  <div className={`skeleton-shimmer ${className}`} />
-);
-
 const Index = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       {/* Navigation */}
       <header className="sticky top-0 z-50 border-b border-border bg-background">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded bg-primary">
               <span className="text-sm font-bold text-primary-foreground">PF</span>
@@ -19,18 +14,15 @@ const Index = () => {
             <span className="text-lg font-bold text-foreground tracking-tight">PixelForge Printers</span>
           </div>
 
-          {/* Nav skeleton links */}
           <nav className="hidden items-center gap-6 md:flex">
-            <SkeletonBar className="h-3 w-14" />
-            <SkeletonBar className="h-3 w-16" />
-            <SkeletonBar className="h-3 w-10" />
-            <SkeletonBar className="h-3 w-20" />
-            <SkeletonBar className="h-3 w-14" />
+            <span className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Store</span>
+            <span className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Printers</span>
+            <span className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Ink</span>
+            <span className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Support</span>
+            <span className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Drivers</span>
           </nav>
 
-          {/* Search skeleton + Sign In */}
           <div className="flex items-center gap-4">
-            <SkeletonBar className="hidden h-9 w-48 rounded-md md:block" />
             <Link to="/login">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6">
                 Sign In
@@ -40,24 +32,27 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section — fills remaining viewport */}
+      {/* Hero Section */}
       <main className="flex flex-1 items-center">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-6 py-12 lg:flex-row lg:gap-16 lg:py-0">
-          {/* Left — text skeletons */}
           <div className="flex flex-1 flex-col gap-5">
-            <SkeletonBar className="h-10 w-3/4" />
-            <SkeletonBar className="h-10 w-1/2" />
-            <div className="mt-2 flex flex-col gap-3">
-              <SkeletonBar className="h-4 w-full" />
-              <SkeletonBar className="h-4 w-5/6" />
-              <SkeletonBar className="h-4 w-4/6" />
+            <h1 className="text-4xl font-bold leading-tight text-foreground lg:text-5xl">
+              Precision in Every Pixel
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+              From home offices to enterprise workflows, PixelForge printers deliver unmatched clarity, speed, and reliability. Discover our latest lineup of consumer and commercial printing solutions.
+            </p>
+            <div className="mt-2">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8">
+                Explore Products
+              </Button>
             </div>
-            <SkeletonBar className="mt-4 h-12 w-44 rounded-md" />
           </div>
 
-          {/* Right — image skeleton */}
           <div className="flex flex-1 items-center justify-center">
-            <SkeletonBar className="h-72 w-full max-w-md rounded-lg lg:h-96" />
+            <div className="flex h-72 w-full max-w-md items-center justify-center rounded-lg bg-muted lg:h-96">
+              <span className="text-sm text-muted-foreground">Product Image</span>
+            </div>
           </div>
         </div>
       </main>
@@ -72,10 +67,10 @@ const Index = () => {
             <p className="text-sm font-semibold text-foreground">PixelForge Inc.</p>
             <p className="text-xs text-muted-foreground">Precision in Every Pixel</p>
           </div>
-          <div className="flex items-center gap-4">
-            <SkeletonBar className="h-3 w-16" />
-            <SkeletonBar className="h-3 w-20" />
-            <SkeletonBar className="h-3 w-14" />
+          <div className="flex items-center gap-6">
+            <span className="text-xs text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Privacy Policy</span>
+            <span className="text-xs text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Terms of Service</span>
+            <span className="text-xs text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Contact Us</span>
           </div>
         </div>
       </footer>
