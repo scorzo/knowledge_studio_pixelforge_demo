@@ -42,7 +42,7 @@ const Login = () => {
             </div>
             {/* Sign In button */}
             <Link to="/dashboard">
-              <div className="skeleton-shimmer h-11 w-full rounded-md cursor-pointer hover:opacity-80 transition-opacity" />
+              <div className="h-11 w-full rounded-md cursor-pointer bg-primary/20 hover:bg-primary/30 transition-colors" />
             </Link>
             {/* Links skeleton */}
             <div className="flex items-center justify-between">
