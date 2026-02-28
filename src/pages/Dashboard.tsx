@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
-
-const SkeletonBar = ({ className = "" }: { className?: string }) => (
-  <div className={`skeleton-shimmer ${className}`} />
-);
+import { Button } from "@/components/ui/button";
 
 const Dashboard = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      {/* Header */}
       <header className="border-b border-border bg-background">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
           <Link to="/" className="flex items-center gap-2">
@@ -17,39 +13,49 @@ const Dashboard = () => {
             <span className="text-lg font-bold text-foreground tracking-tight">PixelForge Printers</span>
           </Link>
           <div className="flex items-center gap-4">
-            <SkeletonBar className="h-8 w-8 rounded-full" />
-            <SkeletonBar className="h-3 w-20" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">JD</div>
+            <span className="text-sm text-muted-foreground">John Doe</span>
           </div>
         </div>
       </header>
 
       <main className="flex flex-1 flex-col items-center px-6 py-12">
         <div className="w-full max-w-4xl space-y-8">
-          {/* Welcome skeleton */}
-          <div className="space-y-2">
-            <SkeletonBar className="h-8 w-64" />
-            <SkeletonBar className="h-4 w-48" />
+          <div>
+            <h1 className="text-2xl font-bold text-foreground">Welcome back, John</h1>
+            <p className="text-sm text-muted-foreground">Here's your account overview</p>
           </div>
 
-          {/* Dashboard cards skeleton */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-lg border border-border bg-card p-6 space-y-4">
-                <SkeletonBar className="h-4 w-24" />
-                <SkeletonBar className="h-10 w-20" />
-                <SkeletonBar className="h-3 w-full" />
-              </div>
-            ))}
+            <div className="rounded-lg border border-border bg-card p-6 space-y-2">
+              <p className="text-sm text-muted-foreground">Registered Printers</p>
+              <p className="text-3xl font-bold text-foreground">3</p>
+              <p className="text-xs text-muted-foreground">PF-4200, PF-8100, PF-Pro X</p>
+            </div>
+            <div className="rounded-lg border border-border bg-card p-6 space-y-2">
+              <p className="text-sm text-muted-foreground">Ink Subscriptions</p>
+              <p className="text-3xl font-bold text-foreground">2</p>
+              <p className="text-xs text-muted-foreground">Active — next shipment Feb 15</p>
+            </div>
+            <div className="rounded-lg border border-border bg-card p-6 space-y-2">
+              <p className="text-sm text-muted-foreground">Driver Version</p>
+              <p className="text-3xl font-bold text-foreground">v4.2.1</p>
+              <p className="text-xs text-muted-foreground">Up to date</p>
+            </div>
           </div>
 
-          {/* Activity skeleton */}
           <div className="rounded-lg border border-border bg-card p-6 space-y-4">
-            <SkeletonBar className="h-5 w-32" />
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="flex items-center gap-4">
-                <SkeletonBar className="h-3 w-20" />
-                <SkeletonBar className="h-3 flex-1" />
-                <SkeletonBar className="h-3 w-16" />
+            <h2 className="text-base font-semibold text-foreground">Recent Activity</h2>
+            {[
+              { date: "Feb 10", action: "Printed 24-page report", printer: "PF-4200" },
+              { date: "Feb 8", action: "Ink cartridge replaced (Cyan)", printer: "PF-8100" },
+              { date: "Feb 5", action: "Driver updated to v4.2.1", printer: "All devices" },
+              { date: "Jan 30", action: "Warranty registered", printer: "PF-Pro X" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-4 text-sm">
+                <span className="w-16 shrink-0 text-muted-foreground">{item.date}</span>
+                <span className="flex-1 text-foreground">{item.action}</span>
+                <span className="text-xs text-muted-foreground">{item.printer}</span>
               </div>
             ))}
           </div>
