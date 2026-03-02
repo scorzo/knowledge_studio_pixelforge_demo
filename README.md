@@ -1,73 +1,47 @@
-# Welcome to your Lovable project
+# PixelForge Printers — Demo Site
 
-## Project info
+A demo customer-facing website for **PixelForge Printers**, built to showcase [Knowledge Studio](https://github.com/scorzo/chat-widget) chat widget integration with authenticated identity tokens and MCP tooling.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## What's Included
 
-## How can I edit this code?
+- **Landing page** with a sales chat widget (anonymous)
+- **Login / Dashboard** with a support chat widget (authenticated via JWT identity token)
+- **MCP server** (`mcp-servers/pixelforge-account/`) — a mock customer account lookup tool that returns registered printers, consumable levels, warranty status, ink subscriptions, and order history for the authenticated user
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Running Locally
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site runs at `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Chat Widget Setup
 
-**Use GitHub Codespaces**
+The chat widgets connect to a locally running Knowledge Studio instance. Two widget instances are used:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Widget | Page | Instance ID | Auth |
+|--------|------|-------------|------|
+| Sales | Landing page (`/`) | `fac7de20-4a6e-4b5e-b767-54d42d498a69` | Anonymous |
+| Support | Dashboard (`/dashboard`) | `08582c12-27d9-473a-afab-496416679148` | JWT identity token |
 
-## What technologies are used for this project?
+Widget source URL: `http://localhost:3000/widget/widget.js`
 
-This project is built with:
+## MCP Server
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The `mcp-servers/pixelforge-account/` directory contains a self-contained MCP server that can be connected via Knowledge Studio's GitHub MCP feature:
 
-## How can I deploy this project?
+- **Owner:** `scorzo`
+- **Repository:** `knowledge_studio_pixelforge_demo`
+- **Branch:** `main`
+- **Subdirectory:** `mcp-servers/pixelforge-account`
+- **Requires Authentication:** Yes
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+The MCP exposes a `get_customer_account` tool that returns hardcoded account data for the demo user (John Doe), including three registered printers (E200, L500, P300) with realistic consumable levels, alerts, and warranty statuses grounded in the PixelForge knowledge base.
 
-## Can I connect a custom domain to my Lovable project?
+## Tech Stack
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- React + TypeScript + Vite
+- Tailwind CSS + shadcn/ui
+- MCP SDK (`@modelcontextprotocol/sdk`)
