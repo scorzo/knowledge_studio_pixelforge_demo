@@ -1,21 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Printer, LogOut } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import SupportChat from "@/components/SupportChat";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <SupportChat />
       <header className="border-b border-border bg-background">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
           <Link to="/" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded bg-primary">
-              <span className="text-sm font-bold text-primary-foreground">PF</span>
+              <Printer className="h-4 w-4 text-primary-foreground" />
             </div>
             <span className="text-lg font-bold text-foreground tracking-tight">PixelForge Printers</span>
           </Link>
-          <div className="flex items-center gap-4">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">JD</div>
-            <span className="text-sm text-muted-foreground">John Doe</span>
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="flex items-center gap-3 rounded-lg px-2 py-1 hover:bg-muted transition-colors">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">JD</div>
+                <span className="text-sm text-muted-foreground">John Doe</span>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => navigate("/")} className="cursor-pointer">
+                <LogOut className="mr-2 h-4 w-4" />
+                Log out
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </header>
 

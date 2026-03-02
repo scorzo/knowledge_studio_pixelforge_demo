@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Printer } from "lucide-react";
 
 const Login = () => {
   return (
@@ -11,7 +12,7 @@ const Login = () => {
         <div className="mx-auto flex h-14 max-w-7xl items-center px-6">
           <Link to="/" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded bg-primary">
-              <span className="text-sm font-bold text-primary-foreground">PF</span>
+              <Printer className="h-4 w-4 text-primary-foreground" />
             </div>
             <span className="text-lg font-bold text-foreground tracking-tight">PixelForge Printers</span>
           </Link>
@@ -22,7 +23,7 @@ const Login = () => {
         <Card className="w-full max-w-sm border-border shadow-lg">
           <CardHeader className="items-center gap-3 pb-2">
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary">
-              <span className="text-lg font-bold text-primary-foreground">PF</span>
+              <Printer className="h-6 w-6 text-primary-foreground" />
             </div>
             <p className="text-sm font-medium text-muted-foreground">Sign in to PixelForge</p>
           </CardHeader>

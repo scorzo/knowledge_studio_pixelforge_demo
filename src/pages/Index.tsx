@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Printer } from "lucide-react";
+import SalesChat from "@/components/SalesChat";
 
 const Index = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <SalesChat />
       {/* Navigation */}
       <header className="sticky top-0 z-50 border-b border-border bg-background">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded bg-primary">
-              <span className="text-sm font-bold text-primary-foreground">PF</span>
+              <Printer className="h-4 w-4 text-primary-foreground" />
             </div>
             <span className="text-lg font-bold text-foreground tracking-tight">PixelForge Printers</span>
           </div>
@@ -50,9 +53,11 @@ const Index = () => {
           </div>
 
           <div className="flex flex-1 items-center justify-center">
-            <div className="flex h-72 w-full max-w-md items-center justify-center rounded-lg bg-muted lg:h-96">
-              <span className="text-sm text-muted-foreground">Product Image</span>
-            </div>
+            <img
+              src="/images/demo_print.jpg"
+              alt="Two colleagues using a PixelForge printer"
+              className="h-72 w-full max-w-md rounded-lg object-cover lg:h-96"
+            />
           </div>
         </div>
       </main>
