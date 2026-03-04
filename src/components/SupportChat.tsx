@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const WIDGET_SRC = "http://localhost:3000/widget/widget.js";
+const WIDGET_SRC = import.meta.env.VITE_WIDGET_SRC || "http://localhost:3000/widget/widget.js";
 const IDENTITY_TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwaXhlbGZvcmdlLWRlbW8iLCJzdWIiOiJ1c2VyLTEyMyIsImF1ZCI6ImNoYXQtd2lkZ2V0LXBsYXRmb3JtIiwiZW1haWwiOiJqb2huLmRvZUBwaXhlbGZvcmdlLmNvbSIsIm5hbWUiOiJKb2huIERvZSIsImlhdCI6MTc3MjQ3NjkyNiwiZXhwIjoyMDg3ODM2OTI2fQ.Cb_WbxZMeut2Tmp_h5nCSZYZdxiPuRkGYdi4HCoJm7E";
 

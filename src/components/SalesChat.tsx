@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const WIDGET_SRC = "http://localhost:3000/widget/widget.js";
+const WIDGET_SRC = import.meta.env.VITE_WIDGET_SRC || "http://localhost:3000/widget/widget.js";
 
 const SalesChat = () => {
   useEffect(() => {
